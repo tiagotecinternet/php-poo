@@ -25,11 +25,17 @@ $clienteB = new Cliente;
 
 // Atribuindo dados via setters do objeto
 $clienteA->setNome("Tiago");
+$clienteA->setEmail("tiago@gmail.com");
+
+$clienteA->setSenha("123abcd");
+
 $clienteB->setNome("Bernardo");
 ?>
 
 <h2>Dados dos objetos (leitura via getters)</h2>
 <h3> <?= $clienteA->getNome() ?> </h3>
+<h3> <?= $clienteA->getEmail() ?> </h3>
+<h3> <?= $clienteA->getSenha() ?> </h3>
 
 <h3> <?= $clienteB->getNome() ?> </h3>
 
