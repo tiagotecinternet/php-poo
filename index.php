@@ -12,10 +12,10 @@
     <h2>Assuntos abordados:</h2>
     <ul>
         <li>Herança</li>
+        <li>Classe Abstrata (não pode ser instanciada)</li>
     </ul>
 <?php
 // Importando a classe
-require_once "src/Cliente.php"; // superclasse
 require_once "src/PessoaFisica.php"; // subclasse
 require_once "src/PessoaJuridica.php"; // subclasse
 
@@ -31,10 +31,14 @@ $clientePJ->setNome("Jon Oliva");
 $clientePJ->setCnpj("32.088.0001/000-41");
 $clientePJ->setNomeFantasia("Savatage");
 
+
+
 ?>
 
 <pre> <?=var_dump($clientePF, $clientePJ)?> </pre>
 
+<?php $cliente = new Cliente; // erro, pois Cliente é abstrato ?>
+<pre> <?=var_dump($cliente)?> </pre>
 
 </body>
 </html>
