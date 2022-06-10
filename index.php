@@ -4,40 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo 4</title>
+    <title>Exemplo 5</title>
 </head>
 <body>
-    <h1>PHP POO - Exemplo 4</h1>
+    <h1>PHP POO - Exemplo 5</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-        <li>Encapsulamento</li>
-        <li>Modificadores de visibilidade</li>
-        <li>Métodos de acesso: getters e setters</li>
+        <li>Herança</li>
     </ul>
 <?php
 // Importando a classe
-require_once "src/Cliente.php";
+require_once "src/Cliente.php"; // superclasse
+require_once "src/PessoaFisica.php"; // subclasse
 
-// Criação dos objetos
-$clienteA = new Cliente;
-$clienteB = new Cliente;
-
-// Atribuindo dados via setters do objeto
-$clienteA->setNome("Tiago");
-$clienteA->setEmail("tiago@gmail.com");
-
-$clienteA->setSenha("123abcd");
-
-$clienteB->setNome("Bernardo");
+$clientePF = new PessoaFisica;
+$clientePF->setNome('Tiago');
+$clientePF->setEmail('tiago@gmail.com');
+$clientePF->setSenha('123abc');
+$clientePF->setCpf('123.456.789-00');
+$clientePF->setIdade(38);
 ?>
 
-<h2>Dados dos objetos (leitura via getters)</h2>
-<h3> <?= $clienteA->getNome() ?> </h3>
-<h3> <?= $clienteA->getEmail() ?> </h3>
-<h3> <?= $clienteA->getSenha() ?> </h3>
-
-<h3> <?= $clienteB->getNome() ?> </h3>
+<pre> <?=var_dump($clientePF)?> </pre>
 
 
 </body>
