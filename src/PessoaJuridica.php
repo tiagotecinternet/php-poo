@@ -1,16 +1,23 @@
 <?php
 require_once "Cliente.php";
 
-/* final class
-Indica que a classe NÃO PERMITE herança */
-/* final */ class PessoaJuridica extends Cliente {
+class PessoaJuridica extends Cliente {
     private string $cnpj;
     private int $anoFundacao;
-    private string $nomeFantasia;
+    private string $nome;
 
     public function __construct(){
         $this->setSituacao("verificar");
     }
+
+    public function exibirDados(){
+        echo "<h3>".$this->getNome()."</h3>";
+        echo "<ul>";
+        echo "<li>Ano de fundação: ".$this->anoFundacao."</li>";
+        echo "<li>Situação: ".$this->getSituacao()."</li>";
+        echo "</ul>";
+    }
+
 
     public function getCnpj(): string
     {
@@ -32,14 +39,12 @@ Indica que a classe NÃO PERMITE herança */
         $this->anoFundacao = $anoFundacao;
     }
 
-    public function getNomeFantasia(): string
+    public function getNome(): string
     {
-        return $this->nomeFantasia;
+        return $this->nome;
     }
 
-
-    public function setNomeFantasia(string $nomeFantasia)
-    {
-        $this->nomeFantasia = $nomeFantasia;
+    public function setNome(string $nome) {
+       $this->nome = "Empresa: ".$nome;
     }
 }
