@@ -4,44 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemplo 6</title>
+    <title>Exemplo 7</title>
 </head>
 <body>
-    <h1>PHP POO - Exemplo 6</h1>
+    <h1>PHP POO - Exemplo 7</h1>
     <hr>
     <h2>Assuntos abordados:</h2>
     <ul>
-        <li>Polimorfismo</li>
+        <li>Propriedades e Métodos Estáticos</li>
     </ul>
 <?php
-// Importando a classe
-require_once "src/PessoaFisica.php"; // subclasse
-require_once "src/PessoaJuridica.php"; // subclasse
+require_once "src/PessoaFisica.php";
 
 $clientePF = new PessoaFisica;
 $clientePF->setNome('Tiago');
-$clientePF->setEmail('tiago@gmail.com');
-$clientePF->setSenha('123abc');
-$clientePF->setCpf('123.456.789-00');
 $clientePF->setIdade(38);
 
-$clientePJ = new PessoaJuridica;
-$clientePJ->setNome("Jon Oliva");
-$clientePJ->setCnpj("32.088.0001/000-41");
-?>
+// Acessando e atribuindo valor para uma propriedade estática
+PessoaFisica::$cidade = "São Paulo";
 
+// Acessando e lendo o valor de uma propriedade estática
+echo PessoaFisica::$cidade;
+?>
 <h3>Pessoa Física</h3>
 <p> <?=$clientePF->getNome()?> </p>
+<p> <?=$clientePF->getIdade()?> </p>
+<p> Tipo de atendimento: 
+    <?=PessoaFisica::verificaIdade( $clientePF->getIdade() )?> 
+</p>
 
-<h3>Pessoa Juridica</h3>
-<p> <?=$clientePJ->getNome()?> </p>
+<p> <?=PessoaFisica::verificaIdade(90)?> </p>
+<p> <?=PessoaFisica::verificaIdade(50)?> </p>
 
-    <hr>
-    <section> <?=$clientePF->exibirDados()?> </section>
-    <section> <?=$clientePJ->exibirDados()?> </section>
-
-
-<pre> <?=var_dump($clientePF, $clientePJ)?> </pre>
 
 
 </body>
